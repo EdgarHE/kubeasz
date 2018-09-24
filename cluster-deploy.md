@@ -1,6 +1,8 @@
-## image usage
-## import VM
-1. import 1 deploy VM and 2 worker VM, reinitialize MAC address, rename and chose cpu/memory wanted for them
+# Setup a k8s Cluster in 10 minutes
+Use 1 VM as deploy and master node, 2 VMs as worker nodes.
+
+## Import VMs in Virtualbox
+1. import 1 deploy VM and 2 worker VMs, reinitialize MAC address, rename and chose cpu/memory wanted for them
 2. boot the 3 VM and get their IPs with `ifconfig`
 
 ### Deploy cluster on the deploy VM
@@ -49,5 +51,9 @@ ansible all -m ping
 5. deploy
 ```bash
 ansible-playbook 90.setup.yml
+```
+6. creat a new ssh connection to your deploy/master VM and test the k8s cluster with kubectl
+```bash
+kubectl get node
 ```
 
