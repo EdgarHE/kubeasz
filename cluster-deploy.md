@@ -54,6 +54,15 @@ ansible-playbook 90.setup.yml
 ```
 6. creat a new ssh connection to your deploy/master VM and test the k8s cluster with kubectl
 ```bash
-kubectl get node
+kubectl version
+kubectl get componentstatus # 可以看到scheduler/controller-manager/etcd等组件 Healthy
+kubectl cluster-info # 可以看到kubernetes master(apiserver)组件 running
+kubectl get node # 可以看到单 node Ready状态
+kubectl get pod --all-namespaces # 可以查看所有集群pod状态，默认已安装网络插件、coredns、metrics-server等
+kubectl get svc --all-namespaces # 可以查看所有集群服务状态
 ```
+
+7. [optional] access k8s dashboard at`https://192.168.1.xxx:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+with username:`admin`and password:`123456`. Then follow [dashboard](guide/dashboard.md) for futhur authentification.
+
 
