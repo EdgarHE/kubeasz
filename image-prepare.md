@@ -38,6 +38,11 @@ if __name__ == '__main__':
 ```
 ```bash
 pip install ansible
+git clone https://github.com/gjmzj/kubeasz.git
+mkdir -p /etc/ansible
+mv kubeasz/* /etc/ansible
+cd /etc/ansible && cp example/hosts.s-masters.example hosts
+
 ssh-keygen -t rsa -b 2048 回车 回车 回车
 ssh-copy-id 192.168.3.59
 ssh-copy-id 192.168.3.60
